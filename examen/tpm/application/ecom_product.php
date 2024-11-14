@@ -3,7 +3,7 @@
   <!-- [Head] start -->
 
   <head>
-    <title>Add New Product | Light Able Admin & Dashboard Template</title>
+    <title>Products | Light Able Admin & Dashboard Template</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -48,7 +48,7 @@
  <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="index.html" class="b-brand text-primary">
+      <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
         <img src="../assets/images/logo-dark.svg" alt="logo image" class="logo-lg" />
         <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version">v1.2.0</span>
@@ -68,13 +68,21 @@
             <span class="pc-mtext">Statistics</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="../widget/w_user.html" class="pc-link">
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
             <span class="pc-micon">
-              <i class="ph-duotone ph-identification-card"></i>
+              <i class="ph-duotone ph-shopping-cart"></i>
             </span>
-            <span class="pc-mtext">User</span>
-          </a>
+            <span class="pc-mtext">Client</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/client_alta.php">Alta cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_baja.php">Baja Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_modificar.php">Modificar Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_list.php">Lista De Clientes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_details.php">Detalle Cliente</a></li>
+
+          </ul>
         </li>
       
         <li class="pc-item pc-caption">
@@ -90,10 +98,10 @@
             <span class="pc-mtext">E-commerce</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.html">Product</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.html">Product details</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.html">Product List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.html">Add New Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.php">Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.php">Product details</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.php">Product List</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.php">Add New Product</a></li>
           </ul>
         </li>
 
@@ -105,11 +113,60 @@
             <span class="pc-mtext">Users</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/account-profile.html">Account Profile</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/social-media.html">Social media</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/user-card.html">User Card</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/user-list.html">User List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/team.html">Team</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.php">Alta de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_usuario.php">Baja de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_usuario.php">Modificaciones de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/lista_usuarios.php">Lista de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_usuario.php">Detalle de usuarios</a></li>
+          </ul>
+        </li>
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Cupones</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.php">Alta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_cupones.php">Baja de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_cupones.php">Modificaciones de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_cupones.php">consulta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_cupones.php">Detalle de cupones</a></li>
+          </ul>
+        </li>
+
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Catalogos</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/crud_categorias.php">CRUD de categorias</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_marcas.php">CRUD de marcas</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_tags.php">CRUD de tags</a></li>
+          </ul>
+        </li>
+        
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Ordenes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">Alta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_ordenes.php">Baja de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_ordenes.php">Modificaciones de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consultas_ordenes.php">consulta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_ordenes_fecha.php">consulta de ordenes por fecha</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_ordenes.php">Detalle de ordenes</a></li>
           </ul>
         </li>
 
@@ -131,14 +188,9 @@
               ></a>
               <ul class="pc-submenu">
                 <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/login-v1.html">Login</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/register-v1.html">Register</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/forgot-password-v1.html">Forgot Password</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/reset-password-v1.html">reset password</a> </li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/code-verification-v1.html">code verification</a></li>
               </ul>
             </li>
             
-            <li class="pc-item"><a class="pc-link" href="../pages/login-modal.html">Login Modal</a></li>
           </ul>
         </li>
       </ul>
@@ -171,18 +223,6 @@
                     <a class="pc-user-links">
                       <i class="ph-duotone ph-user"></i>
                       <span>My Account</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="pc-user-links">
-                      <i class="ph-duotone ph-gear"></i>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="pc-user-links">
-                      <i class="ph-duotone ph-lock-key"></i>
-                      <span>Lock Screen</span>
                     </a>
                   </li>
                   <li>
@@ -710,258 +750,137 @@
 
     <!-- [ Main Content ] start -->
     <div class="pc-container">
-      <div class="pc-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-          <div class="page-block">
-            <div class="row align-items-center">
-              <div class="col-md-12">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                  <li class="breadcrumb-item"><a href="javascript: void(0)">E-commerce</a></li>
-                  <li class="breadcrumb-item" aria-current="page">Add New Product</li>
-                </ul>
-              </div>
-              <div class="col-md-12">
-                <div class="page-header-title">
-                  <h2 class="mb-0">Add New Product</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- [ breadcrumb ] end -->
+    <?php
 
-        <!-- [ Main Content ] start -->
-        <div class="row">
-          <!-- [ sample-page ] start -->
-          <div class="col-xl-6">
-            <div class="card">
-              <div class="card-header">
-                <h5>Product description</h5>
-              </div>
-              <div class="card-body">
-                <div class="mb-3">
-                  <label class="form-label">Product Name</label>
-                  <input type="text" class="form-control" placeholder="Enter Product Name" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Category</label>
-                  <select class="form-select">
-                    <option>Sneakers</option>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Brand</label>
-                  <select class="form-select">
-                    <option>Nike</option>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
-                  </select>
-                </div>
-                <div class="mb-0">
-                  <label class="form-label">Product Description</label>
-                  <textarea class="form-control" placeholder="Enter Product Description"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Pricing</h5>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label d-flex align-items-center"
-                        >Price <i class="ph-duotone ph-info ms-1" data-bs-toggle="tooltip" data-bs-title="Price"></i
-                      ></label>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" placeholder="Price" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="mb-3">
-                      <label class="form-label d-flex align-items-center"
-                        >Compare at price <i class="ph-duotone ph-info ms-1" data-bs-toggle="tooltip" data-bs-title="Compare at price"></i
-                      ></label>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" placeholder="Compare at price" />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedtax" checked />
-                      <label class="form-check-label" for="flexCheckCheckedtax"> Including all tax </label>
-                    </div>
-                    <div class="mb-0">
-                      <label class="form-label d-flex align-items-center"
-                        >Cost per items <i class="ph-duotone ph-info ms-1" data-bs-toggle="tooltip" data-bs-title="Cost per items"></i
-                      ></label>
-                      <div class="input-group mb-0">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" placeholder="Cost per items" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Inventory</h5>
-              </div>
-              <div class="card-body">
-                <div class="mb-3">
-                  <label class="form-label">Quantity</label>
-                  <input type="text" class="form-control" placeholder="Enter Quantity" />
-                </div>
-                <div class="mb-0">
-                  <label class="form-label">SKU <span class="text-sm text-muted">(optional)</span></label>
-                  <input type="text" class="form-control" placeholder="Enter SKU" />
-                </div>
+class ecom_product
+{
+  private $apiUrl = 'https://crud.jonathansoto.mx/api/products';
+  private $authToken = '1212|LEgAK09G1dXl5s4c9RXZgAgiJqMqadbuo8EV5OvF';
+
+  public function obtenerProductos()
+  {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => $this->apiUrl,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer ' . $this->authToken
+      ),
+    ));
+    $response = curl_exec($curl);
+    curl_close($curl);
+    
+    if ($response) {
+      return json_decode($response, true); // Devuelve la respuesta como array asociativo
+    } else {
+      return null;
+    }
+  }
+}
+
+$productObj = new ecom_product();
+$productos = $productObj->obtenerProductos();
+?>
+
+<!-- Dentro del contenedor de contenido principal -->
+<div class="pc-content">
+  <!-- Aquí comienza el bucle para mostrar los productos -->
+  <?php if (!empty($productos['data'])): ?>
+    <div class="row">
+      <?php foreach ($productos['data'] as $producto): ?>
+        <div class="col-md-4">
+          <div class="card product-card shadow-sm mb-4">
+            <img src="<?= htmlspecialchars($producto['cover']) ?>" class="card-img-top" alt="<?= htmlspecialchars($producto['name']) ?>">
+            <div class="card-body">
+              <h5 class="card-title"><?= htmlspecialchars($producto['name']) ?></h5>
+              <p class="card-text"><?= htmlspecialchars($producto['description']) ?></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-primary fw-bold">$<?= htmlspecialchars($producto['price']) ?></span>
+                <?php if ($producto['discount'] > 0): ?>
+                  <span class="text-muted text-decoration-line-through">$<?= htmlspecialchars($producto['price'] / (1 - $producto['discount'] / 100)) ?></span>
+                <?php endif; ?>
               </div>
             </div>
           </div>
-          <div class="col-xl-6">
-            <div class="card">
-              <div class="card-header">
-                <h5>Selling type</h5>
-              </div>
-              <div class="card-body">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="Checkselling1" checked />
-                  <label class="form-check-label" for="Checkselling1"> In-store selling only </label>
-                </div>
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="Checkselling2" />
-                  <label class="form-check-label" for="Checkselling2"> Online Selling only </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="Checkselling3" />
-                  <label class="form-check-label" for="Checkselling3"> Available both in-store and online </label>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Variant</h5>
-              </div>
-              <div class="card-body">
-                <input
-                  class="form-control"
-                  id="choices-text-remove-button"
-                  type="text"
-                  value="Product variants,variants 2"
-                  placeholder="Enter something"
-                />
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Select size</h5>
-              </div>
-              <div class="card-body">
-                <div class="row g-2">
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite1" name="btn_radio2" checked="" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite1">34</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite2" name="btn_radio2" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite2">36</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite3" name="btn_radio2" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite3">38</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite4" name="btn_radio2" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite4">40</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite5" name="btn_radio2" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite5">42</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Product image</h5>
-              </div>
-              <div class="card-body">
-                <div class="mb-0">
-                  <p><span class="text-danger">*</span> Recommended resolution is 640*640 with file size</p>
-                  <label class="btn btn-outline-secondary" for="flupld"><i class="ti ti-upload me-2"></i> Click to Upload</label>
-                  <input type="file" id="flupld" class="d-none" />
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Shipping and Delivery</h5>
-              </div>
-              <div class="card-body">
-                <div class="mb-0">
-                  <label class="form-label">Items Weight</label>
-                  <select class="form-select">
-                    <option>12.00</option>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h5>Status</h5>
-              </div>
-              <div class="card-body">
-                <div class="row g-2">
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite11" name="btn_radio12" checked="" />
-                    <label class="btn btn-sm btn-light-success" for="btnrdolite11">Active</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite12" name="btn_radio12" />
-                    <label class="btn btn-sm btn-light-primary" for="btnrdolite12">Processing</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite13" name="btn_radio12" />
-                    <label class="btn btn-sm btn-light-danger" for="btnrdolite13">Close</label>
-                  </div>
-                  <div class="col-auto">
-                    <input type="radio" class="btn-check" id="btnrdolite14" name="btn_radio12" />
-                    <label class="btn btn-sm btn-light-warning" for="btnrdolite14">Pending</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-body text-end btn-page">
-                <button class="btn btn-primary mb-0">Save product</button>
-                <button class="btn btn-outline-secondary mb-0">Reset</button>
-              </div>
-            </div>
-          </div>
-          <!-- [ sample-page ] end -->
         </div>
-        <!-- [ Main Content ] end -->
+      <?php endforeach; ?>
+    </div>
+  <?php else: ?>
+    <p>No hay productos disponibles.</p>
+  <?php endif; ?>
+</div>
+
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="productOffcanvas" aria-labelledby="productOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="productOffcanvasLabel">Product Details</h5>
+        <a href="#" class="avtar avtar-s btn-link-danger btn-pc-default" data-bs-dismiss="offcanvas">
+          <i class="ti ti-x f-20"></i>
+        </a>
+      </div>
+      <div class="offcanvas-body">
+        <div class="card product-card shadow-none border-0">
+          <div class="card-img-top p-0">
+            <a href="ecom_product-details.html">
+              <img src="../assets/images/application/img-prod-4.jpg" alt="image" class="img-prod img-fluid" />
+            </a>
+            <div class="card-body position-absolute end-0 top-0">
+              <div class="form-check prod-likes">
+                <input type="checkbox" class="form-check-input" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-heart prod-likes-icon"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body position-absolute start-0 top-0">
+              <span class="badge bg-danger badge-prod-card">30%</span>
+            </div>
+          </div>
+        </div>
+        <h5>Glitter gold Mesh Walking Shoes</h5>
+        <p class="text-muted"
+          >Image Enlargement: After shooting, you can enlarge photographs of the objects for clear zoomed view. Change In Aspect Ratio:
+          Boldly crop the subject and save it with a composition that has impact.</p
+        >
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item px-0">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+              <p class="mb-0 text-muted me-1">Price</p>
+              <h4 class="mb-0"><b>$299.00</b><span class="mx-2 f-14 text-muted f-w-400 text-decoration-line-through">$399.00</span></h4>
+            </div>
+          </li>
+          <li class="list-group-item px-0">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+              <p class="mb-0 text-muted me-1">Categories</p>
+              <h6 class="mb-0">Shoes</h6>
+            </div>
+          </li>
+          <li class="list-group-item px-0">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+              <p class="mb-0 text-muted me-1">Status</p>
+              <h6 class="mb-0"><span class="badge bg-warning rounded-pill">Process</span></h6>
+            </div>
+          </li>
+          <li class="list-group-item px-0">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+              <p class="mb-0 text-muted me-1">Brands</p>
+              <h6 class="mb-0"><img src="../assets/images/application/img-prod-brand-1.png" alt="user-image" class="wid-40" /></h6>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <!-- [ Main Content ] end -->
@@ -1016,15 +935,12 @@
 
 
     <!-- [Page Specific JS] start -->
-    <!-- tagify -->
-    <script src="../assets/js/plugins/choices.min.js"></script>
     <script>
-      var textRemove = new Choices(document.getElementById('choices-text-remove-button'), {
-        delimiter: ',',
-        editItems: true,
-        maxItemCount: 5,
-        removeItemButton: true
-      });
+      // scroll-block
+      var tc = document.querySelectorAll('.scroll-block');
+      for (var t = 0; t < tc.length; t++) {
+        new SimpleBar(tc[t]);
+      }
     </script>
     <!-- [Page Specific JS] end -->
     <div class="offcanvas border-0 pct-offcanvas offcanvas-end" tabindex="-1" id="offcanvas_pc_layout">

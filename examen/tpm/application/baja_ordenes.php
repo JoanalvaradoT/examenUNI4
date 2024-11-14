@@ -48,10 +48,10 @@ z<!doctype html>
 </div>
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
-<nav class="pc-sidebar">
+ <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="index.html" class="b-brand text-primary">
+      <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
         <img src="../assets/images/logo-dark.svg" alt="logo image" class="logo-lg" />
         <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version">v1.2.0</span>
@@ -79,11 +79,11 @@ z<!doctype html>
             <span class="pc-mtext">Client</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/client_alta.html">Alta cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_baja.html">Baja Cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_modificar.html">Modificar Cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_list.html">Lista De Clientes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_details.html">Detalle Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_alta.php">Alta cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_baja.php">Baja Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_modificar.php">Modificar Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_list.php">Lista De Clientes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_details.php">Detalle Cliente</a></li>
 
           </ul>
         </li>
@@ -101,10 +101,10 @@ z<!doctype html>
             <span class="pc-mtext">E-commerce</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.html">Product</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.html">Product details</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.html">Product List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.html">Add New Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.php">Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.php">Product details</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.php">Product List</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.php">Add New Product</a></li>
           </ul>
         </li>
 
@@ -116,11 +116,11 @@ z<!doctype html>
             <span class="pc-mtext">Users</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.html">Alta de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_usuario.html">Baja de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_usuario.html">Modificaciones de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/lista_usuarios.html">Lista de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_usuario.html">Detalle de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.php">Alta de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_usuario.php">Baja de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_usuario.php">Modificaciones de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/lista_usuarios.php">Lista de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_usuario.php">Detalle de usuarios</a></li>
           </ul>
         </li>
 
@@ -132,11 +132,11 @@ z<!doctype html>
             <span class="pc-mtext">Cupones</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.html">Alta de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_cupones.html">Baja de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_cupones.html">Modificaciones de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/consulta_cupones.html">consulta de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_cupones.html">Detalle de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.php">Alta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_cupones.php">Baja de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_cupones.php">Modificaciones de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_cupones.php">consulta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_cupones.php">Detalle de cupones</a></li>
           </ul>
         </li>
 
@@ -149,9 +149,9 @@ z<!doctype html>
             <span class="pc-mtext">Catalogos</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/crud_categorias.html">CRUD de categorias</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/crud_marcas.html">CRUD de marcas</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/crud_tags.html">CRUD de tags</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_categorias.php">CRUD de categorias</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_marcas.php">CRUD de marcas</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_tags.php">CRUD de tags</a></li>
           </ul>
         </li>
         
@@ -164,12 +164,12 @@ z<!doctype html>
             <span class="pc-mtext">Ordenes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.html">Alta de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_ordenes.html">Baja de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_ordenes.html">Modificaciones de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/consultas_ordenes.html">consulta de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/consulta_ordenes_fecha.html">consulta de ordenes por fecha</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_ordenes.html">Detalle de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">Alta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_ordenes.php">Baja de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_ordenes.php">Modificaciones de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consultas_ordenes.php">consulta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_ordenes_fecha.php">consulta de ordenes por fecha</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_ordenes.php">Detalle de ordenes</a></li>
           </ul>
         </li>
 

@@ -51,7 +51,7 @@
  <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="index.html" class="b-brand text-primary">
+      <a href="../dashboard/index.html" class="b-brand text-primary">
         <!-- ========   Change your logo from here   ============ -->
         <img src="../assets/images/logo-dark.svg" alt="logo image" class="logo-lg" />
         <span class="badge bg-brand-color-2 rounded-pill ms-2 theme-version">v1.2.0</span>
@@ -71,13 +71,21 @@
             <span class="pc-mtext">Statistics</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="../widget/w_user.html" class="pc-link">
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
             <span class="pc-micon">
-              <i class="ph-duotone ph-identification-card"></i>
+              <i class="ph-duotone ph-shopping-cart"></i>
             </span>
-            <span class="pc-mtext">User</span>
-          </a>
+            <span class="pc-mtext">Client</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/client_alta.php">Alta cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_baja.php">Baja Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_modificar.php">Modificar Cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_list.php">Lista De Clientes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_details.php">Detalle Cliente</a></li>
+
+          </ul>
         </li>
       
         <li class="pc-item pc-caption">
@@ -93,10 +101,10 @@
             <span class="pc-mtext">E-commerce</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.html">Product</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.html">Product details</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.html">Product List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.html">Add New Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.php">Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.php">Product details</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.php">Product List</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.php">Add New Product</a></li>
           </ul>
         </li>
 
@@ -108,11 +116,60 @@
             <span class="pc-mtext">Users</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/account-profile.html">Account Profile</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/social-media.html">Social media</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/user-card.html">User Card</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/user-list.html">User List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/team.html">Team</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.php">Alta de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_usuario.php">Baja de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_usuario.php">Modificaciones de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/lista_usuarios.php">Lista de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_usuario.php">Detalle de usuarios</a></li>
+          </ul>
+        </li>
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Cupones</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.php">Alta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_cupones.php">Baja de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_cupones.php">Modificaciones de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_cupones.php">consulta de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_cupones.php">Detalle de cupones</a></li>
+          </ul>
+        </li>
+
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Catalogos</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/crud_categorias.php">CRUD de categorias</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_marcas.php">CRUD de marcas</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/crud_tags.php">CRUD de tags</a></li>
+          </ul>
+        </li>
+        
+
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-user-circle"></i>
+            </span>
+            <span class="pc-mtext">Ordenes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">Alta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/baja_ordenes.php">Baja de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/modificacion_ordenes.php">Modificaciones de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consultas_ordenes.php">consulta de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/consulta_ordenes_fecha.php">consulta de ordenes por fecha</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/detalle_ordenes.php">Detalle de ordenes</a></li>
           </ul>
         </li>
 
@@ -134,14 +191,9 @@
               ></a>
               <ul class="pc-submenu">
                 <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/login-v1.html">Login</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/register-v1.html">Register</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/forgot-password-v1.html">Forgot Password</a></li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/reset-password-v1.html">reset password</a> </li>
-                <li class="pc-item"><a class="pc-link" target="_blank" href="../pages/code-verification-v1.html">code verification</a></li>
               </ul>
             </li>
             
-            <li class="pc-item"><a class="pc-link" href="../pages/login-modal.html">Login Modal</a></li>
           </ul>
         </li>
       </ul>
@@ -174,18 +226,6 @@
                     <a class="pc-user-links">
                       <i class="ph-duotone ph-user"></i>
                       <span>My Account</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="pc-user-links">
-                      <i class="ph-duotone ph-gear"></i>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="pc-user-links">
-                      <i class="ph-duotone ph-lock-key"></i>
-                      <span>Lock Screen</span>
                     </a>
                   </li>
                   <li>
