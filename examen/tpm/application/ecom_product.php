@@ -56,52 +56,32 @@
     </div>
     <div class="navbar-content">
       <ul class="pc-navbar">
-        <li class="pc-item pc-caption">
-          <label>Widget</label>
-          <i class="ph-duotone ph-chart-pie"></i>
-        </li>
-        <li class="pc-item">
-          <a href="../widget/w_statistics.html" class="pc-link">
-            <span class="pc-micon">
-              <i class="ph-duotone ph-projector-screen-chart"></i>
-            </span>
-            <span class="pc-mtext">Statistics</span>
-          </a>
-        </li>
-        <li class="pc-item pc-hasmenu">
-          <a href="#!" class="pc-link">
-            <span class="pc-micon">
-              <i class="ph-duotone ph-shopping-cart"></i>
-            </span>
-            <span class="pc-mtext">Client</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
-          ></a>
-          <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/client_alta.php">Alta cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_baja.php">Baja Cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_modificar.php">Modificar Cliente</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_list.php">Lista De Clientes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/client_details.php">Detalle Cliente</a></li>
-
-          </ul>
-        </li>
       
-        <li class="pc-item pc-caption">
-          <label>Application</label>
-          <i class="ph-duotone ph-buildings"></i>
-        </li>
        
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link">
             <span class="pc-micon">
               <i class="ph-duotone ph-shopping-cart"></i>
             </span>
-            <span class="pc-mtext">E-commerce</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+            <span class="pc-mtext">Cliente</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.php">Product</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-details.php">Product details</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-list.php">Product List</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/ecom_product-add.php">Add New Product</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_alta.php">cliente</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/client_list.php">Lista De Clientes</a></li>
+          </ul>
+        </li>
+      
+     
+       
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link">
+            <span class="pc-micon">
+              <i class="ph-duotone ph-shopping-cart"></i>
+            </span>
+            <span class="pc-mtext">Producto</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+          ></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="../application/ecom_product.php">Producto</a></li>
           </ul>
         </li>
 
@@ -110,14 +90,11 @@
             <span class="pc-micon">
               <i class="ph-duotone ph-user-circle"></i>
             </span>
-            <span class="pc-mtext">Users</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
+            <span class="pc-mtext">Usuarios</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.php">Alta de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_usuario.php">Baja de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_usuario.php">Modificaciones de usuarios</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_usuarios.php">Usuarios</a></li>
             <li class="pc-item"><a class="pc-link" href="../application/lista_usuarios.php">Lista de usuarios</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_usuario.php">Detalle de usuarios</a></li>
           </ul>
         </li>
 
@@ -129,11 +106,8 @@
             <span class="pc-mtext">Cupones</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.php">Alta de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_cupones.php">Baja de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_cupones.php">Modificaciones de cupones</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_cupones.php">cupones</a></li>
             <li class="pc-item"><a class="pc-link" href="../application/consulta_cupones.php">consulta de cupones</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_cupones.php">Detalle de cupones</a></li>
           </ul>
         </li>
 
@@ -161,19 +135,11 @@
             <span class="pc-mtext">Ordenes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span
           ></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">Alta de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/baja_ordenes.php">Baja de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/modificacion_ordenes.php">Modificaciones de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/consultas_ordenes.php">consulta de ordenes</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/consulta_ordenes_fecha.php">consulta de ordenes por fecha</a></li>
-            <li class="pc-item"><a class="pc-link" href="../application/detalle_ordenes.php">Detalle de ordenes</a></li>
+            <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">ordenes</a></li>
           </ul>
         </li>
 
-        <li class="pc-item pc-caption">
-          <label>Pages</label>
-          <i class="ph-duotone ph-devices"></i>
-        </li>
+      
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link">
             <span class="pc-micon">
@@ -751,7 +717,6 @@
     <!-- [ Main Content ] start -->
     <div class="pc-container">
     <?php
-
 class ecom_product
 {
   private $apiUrl = 'https://crud.jonathansoto.mx/api/products';
@@ -784,6 +749,11 @@ $productos = $productObj->obtenerProductos();
 
 <!-- Dentro del contenedor de contenido principal -->
 <div class="pc-content">
+  <!-- Botón de Añadir nuevo producto -->
+  <div class="mb-4 d-flex justify-content-end">
+    <a href="crear_producto.php" class="btn btn-primary">Añadir nuevo producto</a>
+  </div>
+
   <!-- Aquí comienza el bucle para mostrar los productos -->
   <?php if (!empty($productos['data'])): ?>
     <div class="row">
@@ -794,12 +764,16 @@ $productos = $productObj->obtenerProductos();
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($producto['name']) ?></h5>
               <p class="card-text"><?= htmlspecialchars($producto['description']) ?></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="text-primary fw-bold">$<?= htmlspecialchars($producto['price']) ?></span>
-                <?php if ($producto['discount'] > 0): ?>
-                  <span class="text-muted text-decoration-line-through">$<?= htmlspecialchars($producto['price'] / (1 - $producto['discount'] / 100)) ?></span>
-                <?php endif; ?>
+              
+              <!-- Opciones de Detalles, Editar y Eliminar -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="detalle_producto.php?id=<?= htmlspecialchars($producto['id']) ?>" class="btn btn-info btn-sm">Detalles</a>
+                <a href="editar_producto.php?id=<?= htmlspecialchars($producto['id']) ?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="eliminar_producto.php?id=<?= htmlspecialchars($producto['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este producto?')">Eliminar</a>
               </div>
+              
+              <!-- Precio y Descuento -->
+            
             </div>
           </div>
         </div>
@@ -809,6 +783,7 @@ $productos = $productObj->obtenerProductos();
     <p>No hay productos disponibles.</p>
   <?php endif; ?>
 </div>
+
 
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="productOffcanvas" aria-labelledby="productOffcanvasLabel">
