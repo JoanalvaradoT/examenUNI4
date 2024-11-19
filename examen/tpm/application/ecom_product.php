@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 <!-- [Head] start -->
@@ -426,7 +428,7 @@
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <a href="ecom_product-details.php?id=<?= htmlspecialchars($producto['id']) ?>"
                       class="btn btn-info btn-sm">Detalles</a>
-                    <a href="editar_producto.php?id=<?= htmlspecialchars($producto['id']) ?>"
+                    <a href="=<?= htmlspecialchars($producto['id']) ?>"
                       class="btn btn-warning btn-sm">Editar</a>
                     <form action="../../app/ProductoController.php?action=delete" method="POST" class="mt-2">
                       <input type="hidden" name="id" value="<?= htmlspecialchars($producto['id']) ?>">

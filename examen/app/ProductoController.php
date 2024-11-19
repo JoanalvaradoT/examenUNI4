@@ -110,16 +110,18 @@ class ProductoController
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'PUT',
-            CURLOPT_POSTFIELDS => http_build_query($datos),
+            CURLOPT_POSTFIELDS => json_encode($datos), 
             CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/x-www-form-urlencoded',
+                'Content-Type: application/json', 
                 $this->authHeader,
             ),
         ));
         $response = curl_exec($curl);
         curl_close($curl);
+
         return $response;
     }
+
 
     public function eliminarProducto($id)
     {
@@ -181,22 +183,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action'])) {
             }
             break;
 
-            case 'delete':
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-                    $id = intval($_POST['id']); 
-                    $response = $productoController->eliminarProducto($id);
-        
-                    if ($response) {
-                        echo "Producto eliminado correctamente.";
-                        header("Location: ../tpm/application/ecom_product.php");
-                        exit();
-                    } else {
-                        echo "Error al eliminar el producto.";
-                    }
+        case 'delete':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+                $id = intval($_POST['id']);
+                $response = $productoController->eliminarProducto($id);
+
+                if ($response) {
+                    echo "Producto eliminado correctamente.";
+                    header("Location: ../tpm/application/ecom_product.php");
+                    exit();
                 } else {
-                    echo "ID de producto no proporcionado o método no permitido.";
+                    echo "Error al eliminar el producto.";
                 }
-                break;
+            } else {
+                echo "ID de producto no proporcionado o método no permitido.";
+            }
+            break;
     }
 }
 ?>
