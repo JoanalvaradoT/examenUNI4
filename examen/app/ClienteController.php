@@ -56,6 +56,67 @@ class ClienteController {
         return "Error al obtener los clientes. Código: $httpCode Respuesta: $response";
     }
 
+    public function obtenerDetalleCliente($id) {
+        $curl = curl_init();
+    
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->apiUrl . "/$id",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer ' . $this->token,
+                'Accept: application/json'
+            ]
+        ]);
+    
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+    
+        if ($httpCode == 200) {
+            $cliente = json_decode($response, true);
+            return $cliente['data'] ?? null;
+        }
+    
+        return [
+            'error' => true,
+            'message' => "Error al obtener los detalles del cliente. Código: $httpCode Respuesta: $response"
+        ];
+    }
+
+    public function actualizarCliente($id, $name, $email, $password, $phone_number) {
+        $curl = curl_init();
+    
+        $data = [
+            'id' => $id,
+            'name' => $name,
+            'email' => $email,
+            'phone_number' => $phone_number
+        ];
+    
+        if (!empty($password)) {
+            $data['password'] = $password;
+        }
+    
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->apiUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS => http_build_query($data),
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer ' . $this->token,
+                'Content-Type: application/x-www-form-urlencoded'
+            ]
+        ]);
+    
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+    
+        return $httpCode == 200 ? true : "Error al actualizar el cliente. Respuesta: $response";
+    }
+    
+    
+
     public function eliminarCliente($id) {
         $apiUrl = $this->apiUrl . "/$id";
         $curl = curl_init();
