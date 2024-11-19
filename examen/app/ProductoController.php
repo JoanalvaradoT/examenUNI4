@@ -181,19 +181,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action'])) {
             }
             break;
 
-        case 'delete':
-            if (isset($_POST['id'])) {
-                $response = $productoController->eliminarProducto($_POST['id']);
-
-                if ($response) {
-                    echo "Producto eliminado correctamente.";
+            case 'delete':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+                    $id = intval($_POST['id']); 
+                    $response = $productoController->eliminarProducto($id);
+        
+                    if ($response) {
+                        echo "Producto eliminado correctamente.";
+                        header("Location: ../tpm/application/ecom_product.php");
+                        exit();
+                    } else {
+                        echo "Error al eliminar el producto.";
+                    }
                 } else {
-                    echo "Error al eliminar el producto.";
+                    echo "ID de producto no proporcionado o método no permitido.";
                 }
-            } else {
-                echo "ID de producto no proporcionado.";
-            }
-            break;
+                break;
     }
 }
 ?>
