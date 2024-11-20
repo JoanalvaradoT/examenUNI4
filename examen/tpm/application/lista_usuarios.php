@@ -395,7 +395,7 @@ $usuarios = $usuarioController->obtenerUsuarios();
                 <td>
                   <a href="detalle_usuario.php?id=<?php echo $usuario['id']; ?>"
                     class="btn btn-info btn-sm me-2 mb-1">Detalles</a>
-                  <a href="modificar_usuario.php?id=<?php echo $usuario['id']; ?>"
+                  <a href="modificacion_usuario.php?id=<?php echo $usuario['id']; ?>"
                     class="btn btn-warning btn-sm me-2 mb-1">Editar</a>
                   <a href="../../app/UsuarioController.php?action=delete&id=<?php echo $usuario['id']; ?>"
                     class="btn btn-danger btn-sm mb-1"

@@ -29,6 +29,12 @@ class UsuarioController
         ]);
 
         $response = curl_exec($curl);
+
+        // Manejo de errores
+        if (curl_errno($curl)) {
+            echo "cURL Error: " . curl_error($curl);
+        }
+
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
@@ -115,11 +121,27 @@ class UsuarioController
     }
 }
 
+// Manejo de acciones desde este archivo
 if (isset($_GET['action'])) {
     $usuarioController = new UsuarioController();
 
     switch ($_GET['action']) {
         case 'create':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $name = $_POST['name'];
+                $lastname = $_POST['lastname'];
+                $email = $_POST['email'];
+                $phone_number = $_POST['phone_number'];
+                $password = $_POST['password'];
+                $role = $_POST['role'];
+                $profile_photo = $_FILES['profile_photo']['tmp_name'];
+
+                if ($usuarioController->createUser($name, $lastname, $email, $phone_number, $password, $role, $profile_photo)) {
+                    header("Location: ../tpm/application/lista_usuarios.php");
+                } else {
+                    echo "Error al crear el usuario.";
+                }
+            }
             break;
 
         case 'update':
