@@ -7,7 +7,6 @@ class UsuarioController
     public function createUser($name, $lastname, $email, $phone_number, $password, $role, $profile_photo)
     {
         $curl = curl_init();
-
         $data = [
             'name' => $name,
             'lastname' => $lastname,
@@ -21,10 +20,6 @@ class UsuarioController
         curl_setopt_array($curl, [
             CURLOPT_URL => $this->apiUrl,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => $data,
             CURLOPT_HTTPHEADER => [
@@ -35,41 +30,17 @@ class UsuarioController
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
         curl_close($curl);
 
-        if ($error) {
-            echo "cURL Error: $error";
-            return false;
-        }
-
-        $responseArray = json_decode($response, true);
-
-        if ($httpCode === 200 && isset($responseArray['data'])) {
-            header("Location:../tpm/application/lista_usuarios.php");
-            exit;
-        } elseif ($httpCode === 404 && isset($responseArray['message']) && $responseArray['message'] === 'Registro duplicado') {
-            echo "Error: El usuario ya existe con el correo proporcionado.";
-        } else {
-            echo "Error al crear el usuario. Código: $httpCode<br>";
-            echo "Respuesta: $response";
-            return false;
-        }
+        return $httpCode === 200 ? json_decode($response, true) : false;
     }
 
     public function obtenerUsuarios()
     {
         $curl = curl_init();
-
         curl_setopt_array($curl, [
             CURLOPT_URL => $this->apiUrl,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "Authorization: Bearer $this->token",
                 "Accept: application/json"
@@ -78,30 +49,17 @@ class UsuarioController
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
         curl_close($curl);
 
-        if ($error) {
-            echo "cURL Error: $error";
-            return false;
-        }
-
-        return json_decode($response, true);
+        return $httpCode === 200 ? json_decode($response, true) : false;
     }
 
     public function obtenerDetalleUsuario($id)
     {
         $curl = curl_init();
-
         curl_setopt_array($curl, [
             CURLOPT_URL => $this->apiUrl . '/' . $id,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "Authorization: Bearer $this->token",
                 "Accept: application/json"
@@ -110,35 +68,38 @@ class UsuarioController
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
         curl_close($curl);
 
-        if ($error) {
-            echo "cURL Error: $error";
-            return false;
-        }
+        return $httpCode === 200 ? json_decode($response, true) : false;
+    }
 
-        if ($httpCode === 200) {
-            return json_decode($response, true);
-        } else {
-            echo "Error al obtener detalles del usuario. Código: $httpCode<br>";
-            echo "Respuesta: $response";
-            return false;
-        }
+    public function editarUsuario($id, $data)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->apiUrl . '/' . $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS => http_build_query($data),
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer ' . $this->token,
+                'Content-Type: application/x-www-form-urlencoded'
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+
+        return $httpCode === 200 ? json_decode($response, true) : false;
     }
 
     public function eliminarUsuario($id)
     {
         $curl = curl_init();
-
         curl_setopt_array($curl, [
             CURLOPT_URL => $this->apiUrl . '/' . $id,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "DELETE",
             CURLOPT_HTTPHEADER => [
                 "Authorization: Bearer $this->token",
@@ -148,14 +109,7 @@ class UsuarioController
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $error = curl_error($curl);
-
         curl_close($curl);
-
-        if ($error) {
-            echo "cURL Error: $error";
-            return false;
-        }
 
         return $httpCode === 200;
     }
@@ -165,17 +119,37 @@ if (isset($_GET['action'])) {
     $usuarioController = new UsuarioController();
 
     switch ($_GET['action']) {
+        case 'create':
+            break;
+
+        case 'update':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+                $id = $_POST['id'];
+                $data = [
+                    'name' => $_POST['name'],
+                    'lastname' => $_POST['lastname'],
+                    'email' => $_POST['email'],
+                    'phone_number' => $_POST['phone_number'],
+                    'role' => $_POST['role'],
+                    'password' => $_POST['password']
+                ];
+
+                if ($usuarioController->editarUsuario($id, $data)) {
+                    header("Location: ../tpm/application/lista_usuarios.php");
+                } else {
+                    echo "Error al actualizar el usuario.";
+                }
+            }
+            break;
+
         case 'delete':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-
                 if ($usuarioController->eliminarUsuario($id)) {
                     header("Location: ../tpm/application/lista_usuarios.php");
                 } else {
                     echo "Error al eliminar el usuario.";
                 }
-            } else {
-                echo "ID del usuario no especificado.";
             }
             break;
 
@@ -183,5 +157,5 @@ if (isset($_GET['action'])) {
             echo "Acción no válida.";
             break;
     }
-    
-}?>
+}
+?>
