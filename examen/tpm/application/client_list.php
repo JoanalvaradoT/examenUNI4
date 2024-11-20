@@ -377,7 +377,7 @@ $clientes = $clienteController->obtenerClientes();
               <th>Nombre</th>
               <th>Email</th>
               <th>Número de Teléfono</th>
-              <th>Más Ajustes</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>

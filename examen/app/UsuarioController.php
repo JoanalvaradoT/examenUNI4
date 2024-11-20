@@ -1,11 +1,12 @@
 <?php
-class UsuarioController {
-    public function createUser($name, $lastname, $email, $phone_number, $password, $role, $profile_photo) {
+class UsuarioController
+{
+    private $apiUrl = "https://crud.jonathansoto.mx/api/users";
+    private $token = '1649|s6uuE6GJv0GuEp5RF4fMvUatQzfsbEZDCtg1Japp';
+
+    public function createUser($name, $lastname, $email, $phone_number, $password, $role, $profile_photo)
+    {
         $curl = curl_init();
-
-        $url = "https://crud.jonathansoto.mx/api/users";
-
-        $token = '1649|s6uuE6GJv0GuEp5RF4fMvUatQzfsbEZDCtg1Japp';
 
         $data = [
             'name' => $name,
@@ -18,7 +19,7 @@ class UsuarioController {
         ];
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => $url,
+            CURLOPT_URL => $this->apiUrl,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -27,7 +28,7 @@ class UsuarioController {
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => $data,
             CURLOPT_HTTPHEADER => [
-                "Authorization: Bearer $token",
+                "Authorization: Bearer $this->token",
                 "Accept: application/json"
             ],
         ]);
@@ -46,7 +47,7 @@ class UsuarioController {
         $responseArray = json_decode($response, true);
 
         if ($httpCode === 200 && isset($responseArray['data'])) {
-            header("Location:../tpm/application/lista_usuarios.php ");
+            header("Location:../tpm/application/lista_usuarios.php");
             exit;
         } elseif ($httpCode === 404 && isset($responseArray['message']) && $responseArray['message'] === 'Registro duplicado') {
             echo "Error: El usuario ya existe con el correo proporcionado.";
@@ -57,15 +58,12 @@ class UsuarioController {
         }
     }
 
-    public function obtenerUsuarios() {
+    public function obtenerUsuarios()
+    {
         $curl = curl_init();
 
-        $url = "https://crud.jonathansoto.mx/api/users";
-
-        $token = '1649|s6uuE6GJv0GuEp5RF4fMvUatQzfsbEZDCtg1Japp';
-
         curl_setopt_array($curl, [
-            CURLOPT_URL => $url,
+            CURLOPT_URL => $this->apiUrl,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -73,7 +71,7 @@ class UsuarioController {
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
-                "Authorization: Bearer $token",
+                "Authorization: Bearer $this->token",
                 "Accept: application/json"
             ],
         ]);
@@ -91,18 +89,99 @@ class UsuarioController {
 
         return json_decode($response, true);
     }
+
+    public function obtenerDetalleUsuario($id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->apiUrl . '/' . $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer $this->token",
+                "Accept: application/json"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($error) {
+            echo "cURL Error: $error";
+            return false;
+        }
+
+        if ($httpCode === 200) {
+            return json_decode($response, true);
+        } else {
+            echo "Error al obtener detalles del usuario. Código: $httpCode<br>";
+            echo "Respuesta: $response";
+            return false;
+        }
+    }
+
+    public function eliminarUsuario($id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $this->apiUrl . '/' . $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "DELETE",
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer $this->token",
+                "Accept: application/json"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($error) {
+            echo "cURL Error: $error";
+            return false;
+        }
+
+        return $httpCode === 200;
+    }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone_number'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
-    $profile_photo = $_FILES['profile_photo']['tmp_name'];
+if (isset($_GET['action'])) {
+    $usuarioController = new UsuarioController();
 
-    $userController = new UsuarioController();
-    $userController->createUser($name, $lastname, $email, $phone_number, $password, $role, $profile_photo);
-}
-?>
+    switch ($_GET['action']) {
+        case 'delete':
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+
+                if ($usuarioController->eliminarUsuario($id)) {
+                    header("Location: ../tpm/application/lista_usuarios.php");
+                } else {
+                    echo "Error al eliminar el usuario.";
+                }
+            } else {
+                echo "ID del usuario no especificado.";
+            }
+            break;
+
+        default:
+            echo "Acción no válida.";
+            break;
+    }
+    
+}?>

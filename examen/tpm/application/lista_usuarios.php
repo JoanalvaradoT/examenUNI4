@@ -3,6 +3,8 @@ require_once '../../app/UsuarioController.php';
 
 $usuarioController = new UsuarioController();
 $usuarios = $usuarioController->obtenerUsuarios();
+
+
 ?>
 
 <!doctype html>
@@ -368,9 +370,10 @@ $usuarios = $usuarioController->obtenerUsuarios();
 
 
     <div class="pc-content">
-      <h1>Lista de Usuarios</h1>
-      <?php if (!empty($usuarios['data'])): ?>
-        <table class="table">
+      <h1 class="mb-4">Lista de Usuarios</h1>
+
+      <?php if (is_array($usuarios['data']) && count($usuarios['data']) > 0): ?>
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th>ID</th>
@@ -378,16 +381,28 @@ $usuarios = $usuarioController->obtenerUsuarios();
               <th>Email</th>
               <th>Teléfono</th>
               <th>Rol</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($usuarios['data'] as $usuario): ?>
               <tr>
-                <td><?= htmlspecialchars($usuario['id']) ?></td>
-                <td><?= htmlspecialchars($usuario['name']) . ' ' . htmlspecialchars($usuario['lastname']) ?></td>
-                <td><?= htmlspecialchars($usuario['email']) ?></td>
-                <td><?= htmlspecialchars($usuario['phone_number']) ?></td>
-                <td><?= htmlspecialchars($usuario['role']) ?></td>
+                <td><?php echo htmlspecialchars($usuario['id']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['name']) . ' ' . htmlspecialchars($usuario['lastname']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['email']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['phone_number']); ?></td>
+                <td><?php echo htmlspecialchars($usuario['role']); ?></td>
+                <td>
+                  <a href="detalle_usuario.php?id=<?php echo $usuario['id']; ?>"
+                    class="btn btn-info btn-sm me-2 mb-1">Detalles</a>
+                  <a href="modificar_usuario.php?id=<?php echo $usuario['id']; ?>"
+                    class="btn btn-warning btn-sm me-2 mb-1">Editar</a>
+                  <a href="../../app/UsuarioController.php?action=delete&id=<?php echo $usuario['id']; ?>"
+                    class="btn btn-danger btn-sm mb-1"
+                    onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                    Eliminar
+                  </a>
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -396,6 +411,7 @@ $usuarios = $usuarioController->obtenerUsuarios();
         <p>No se encontraron usuarios.</p>
       <?php endif; ?>
     </div>
+
 
   </div>
   <!-- [ Main Content ] end -->
