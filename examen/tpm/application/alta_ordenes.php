@@ -178,7 +178,12 @@ if ($action === "buscar_por_fecha") {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -197,7 +202,7 @@ if ($action === "buscar_por_fecha") {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -336,7 +341,7 @@ if ($action === "buscar_por_fecha") {
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -382,7 +387,7 @@ if ($action === "buscar_por_fecha") {
             <th>Total</th>
             <th>Pagado</th>
             <th>Estado</th>
-            
+
           </tr>
         </thead>
         <tbody>
@@ -394,7 +399,7 @@ if ($action === "buscar_por_fecha") {
                 <td><?= $orden['total'] ?></td>
                 <td><?= $orden['is_paid'] ? 'Sí' : 'No' ?></td>
                 <td><?= $orden['order_status']['name'] ?></td>
-                
+
               </tr>
             <?php endforeach; ?>
           <?php else: ?>

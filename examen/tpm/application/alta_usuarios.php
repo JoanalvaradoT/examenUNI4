@@ -160,7 +160,12 @@
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -179,7 +184,7 @@
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -318,7 +323,7 @@
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -342,45 +347,45 @@
   <div class="pc-container">
 
 
-  <div class="pc-content">
-    <h1>Agregar Usuario</h1>
-    <form action="../../app/UsuarioController.php?action=create" method="POST" enctype="multipart/form-data">
+    <div class="pc-content">
+      <h1>Agregar Usuario</h1>
+      <form action="../../app/UsuarioController.php?action=create" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+          <label for="name" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="mb-3">
-            <label for="lastname" class="form-label">Apellido:</label>
-            <input type="text" class="form-control" id="lastname" name="lastname" required>
+          <label for="lastname" class="form-label">Apellido:</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico:</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+          <label for="email" class="form-label">Correo Electrónico:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
-            <label for="phone_number" class="form-label">Número de Teléfono:</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+          <label for="phone_number" class="form-label">Número de Teléfono:</label>
+          <input type="text" class="form-control" id="phone_number" name="phone_number" required>
         </div>
         <div class="mb-3">
-            <label for="created_by" class="form-label">Creado Por:</label>
-            <input type="text" class="form-control" id="created_by" name="created_by" required>
+          <label for="created_by" class="form-label">Creado Por:</label>
+          <input type="text" class="form-control" id="created_by" name="created_by" required>
         </div>
         <div class="mb-3">
-            <label for="role" class="form-label">Rol:</label>
-            <input type="text" class="form-control" id="role" name="role" required>
+          <label for="role" class="form-label">Rol:</label>
+          <input type="text" class="form-control" id="role" name="role" required>
 
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+          <label for="password" class="form-label">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <div class="mb-3">
-            <label for="profile_photo" class="form-label">Foto de Perfil:</label>
-            <input type="file" class="form-control" id="profile_photo" name="profile_photo" required>
+          <label for="profile_photo" class="form-label">Foto de Perfil:</label>
+          <input type="file" class="form-control" id="profile_photo" name="profile_photo" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Crear Usuario</button>
-    </form>
-</div>
+      </form>
+    </div>
 
 
 

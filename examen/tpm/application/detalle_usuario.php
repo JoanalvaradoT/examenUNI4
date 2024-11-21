@@ -163,7 +163,7 @@ if (isset($_GET['id'])) {
           </li>
 
 
-          
+
         </ul>
 
       </div>
@@ -179,7 +179,12 @@ if (isset($_GET['id'])) {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -198,7 +203,7 @@ if (isset($_GET['id'])) {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -337,7 +342,7 @@ if (isset($_GET['id'])) {
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -368,7 +373,7 @@ if (isset($_GET['id'])) {
           <div class="row">
             <div class="col-md-6 mb-4">
               <div class="card">
-          
+
                 <div class="card-body">
                   <h5 class="card-title">
                     <?= htmlspecialchars($usuario['data']['name']) . ' ' . htmlspecialchars($usuario['data']['lastname']) ?>

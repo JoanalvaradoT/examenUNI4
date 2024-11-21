@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
   <link rel="stylesheet" href="../assets/css/style-preset.css" />
 
-  
+
 
 </head>
 <!-- [Head] end -->
@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </li>
 
 
-          
+
         </ul>
 
       </div>
@@ -198,7 +198,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -217,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -356,7 +361,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -381,36 +386,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="pc-content">
 
-      
-        <h1>Editar Cliente</h1>
-        <?php if (isset($error)): ?>
-          <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
-        <?php endif; ?>
-        <form action="client_modificar.php?id=<?php echo $id; ?>" method="POST">
-          <div class="mb-3">
-            <label for="name" class="form-label">Nombre del Cliente:</label>
-            <input type="text" class="form-control" id="name" name="name"
-              value="<?php echo htmlspecialchars($cliente['name']); ?>" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico:</label>
-            <input type="email" class="form-control" id="email" name="email"
-              value="<?php echo htmlspecialchars($cliente['email']); ?>" required>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="password" name="password"
-              placeholder="Dejar en blanco si no desea cambiar">
-          </div>
-          <div class="mb-3">
-            <label for="phone_number" class="form-label">Número de Teléfono:</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number"
-              value="<?php echo htmlspecialchars($cliente['phone_number']); ?>" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Actualizar Cliente</button>
-        </form>
-      </div>
-  
+
+      <h1>Editar Cliente</h1>
+      <?php if (isset($error)): ?>
+        <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+      <?php endif; ?>
+      <form action="client_modificar.php?id=<?php echo $id; ?>" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre del Cliente:</label>
+          <input type="text" class="form-control" id="name" name="name"
+            value="<?php echo htmlspecialchars($cliente['name']); ?>" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico:</label>
+          <input type="email" class="form-control" id="email" name="email"
+            value="<?php echo htmlspecialchars($cliente['email']); ?>" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password"
+            placeholder="Dejar en blanco si no desea cambiar">
+        </div>
+        <div class="mb-3">
+          <label for="phone_number" class="form-label">Número de Teléfono:</label>
+          <input type="text" class="form-control" id="phone_number" name="phone_number"
+            value="<?php echo htmlspecialchars($cliente['phone_number']); ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Actualizar Cliente</button>
+      </form>
+    </div>
+
   </div>
   <!-- [ Main Content ] end -->
 

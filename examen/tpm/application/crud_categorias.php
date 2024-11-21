@@ -209,7 +209,12 @@ if (isset($_GET['action'])) {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -228,7 +233,7 @@ if (isset($_GET['action'])) {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -367,7 +372,7 @@ if (isset($_GET['action'])) {
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -389,29 +394,30 @@ if (isset($_GET['action'])) {
 
   <!-- [ Main Content ] start -->
   <div class="pc-container">
-  <div class="pc-content">
-    <h1>CRUD de Categorías</h1>
-    <?php if (isset($_GET['message'])): ?>
+    <div class="pc-content">
+      <h1>CRUD de Categorías</h1>
+      <?php if (isset($_GET['message'])): ?>
         <div class="alert alert-success"><?= htmlspecialchars($_GET['message']) ?></div>
-    <?php endif; ?>
+      <?php endif; ?>
 
-    <a href="/unidad4/examen/tpm/application/crear_categoria.php" class="btn btn-primary">Crear Categoría</a>
-    <div class="mt-4">
+      <a href="/unidad4/examen/tpm/application/crear_categoria.php" class="btn btn-primary">Crear Categoría</a>
+      <div class="mt-4">
         <?php if ($categorias && isset($categorias['data'])): ?>
-            <?php foreach ($categorias['data'] as $categoria): ?>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= htmlspecialchars($categoria['name']) ?></h5>
-                        <p class="card-text"><?= htmlspecialchars($categoria['description']) ?></p>
-                        <a href="?action=delete&id=<?= $categoria['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta categoría?');">Eliminar</a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+          <?php foreach ($categorias['data'] as $categoria): ?>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title"><?= htmlspecialchars($categoria['name']) ?></h5>
+                <p class="card-text"><?= htmlspecialchars($categoria['description']) ?></p>
+                <a href="?action=delete&id=<?= $categoria['id'] ?>" class="btn btn-danger"
+                  onclick="return confirm('¿Estás seguro de eliminar esta categoría?');">Eliminar</a>
+              </div>
+            </div>
+          <?php endforeach; ?>
         <?php else: ?>
-            <p>No hay categorías disponibles.</p>
+          <p>No hay categorías disponibles.</p>
         <?php endif; ?>
+      </div>
     </div>
-</div>
 
 
 

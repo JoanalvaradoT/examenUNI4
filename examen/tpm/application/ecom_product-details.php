@@ -202,7 +202,7 @@ if (isset($producto['error']) || empty($producto)) {
               <li class="pc-item"><a class="pc-link" href="../application/alta_ordenes.php">ordenes</a></li>
             </ul>
           </li>
-          
+
         </ul>
 
       </div>
@@ -218,7 +218,12 @@ if (isset($producto['error']) || empty($producto)) {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -237,7 +242,7 @@ if (isset($producto['error']) || empty($producto)) {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -396,8 +401,7 @@ if (isset($producto['error']) || empty($producto)) {
                     </li>
 
                     <li class="list-group-item">
-
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -421,7 +425,7 @@ if (isset($producto['error']) || empty($producto)) {
   <div class="pc-container">
     <div class="pc-content">
 
-    <h1>detalles del producto</h1>
+      <h1>detalles del producto</h1>
 
       <div class="content">
         <div class="container mt-5">

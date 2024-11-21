@@ -5,8 +5,8 @@ $cuponesController = new CuponesController();
 $cupones = $cuponesController->obtenerCupones();
 
 if (!$cupones || !isset($cupones['data'])) {
-    echo "<h2>No se encontraron cupones</h2>";
-    exit;
+  echo "<h2>No se encontraron cupones</h2>";
+  exit;
 }
 ?>
 <!doctype html>
@@ -246,7 +246,12 @@ if (!$cupones || !isset($cupones['data'])) {
                   data-bs-offset="0,20">
                   <div class="d-flex align-items-center">
                     <div class="flex-grow-1 me-2">
-                      <h6 class="mb-0">Jonh Smith</h6>
+                      <h6 class="mb-0">
+                        <?php
+                        session_start();
+                        echo isset($_SESSION['user']) ? htmlspecialchars($_SESSION['user']) : "Invitado";
+                        ?>
+                      </h6>
                       <small>Administrator</small>
                     </div>
                     <div class="flex-shrink-0">
@@ -265,7 +270,7 @@ if (!$cupones || !isset($cupones['data'])) {
                       </a>
                     </li>
                     <li>
-                      <a class="pc-user-links">
+                      <a class="pc-user-links" href="/unidad4/examen/app/LogoutController.php">
                         <i class="ph-duotone ph-power"></i>
                         <span>Logout</span>
                       </a>
@@ -404,7 +409,7 @@ if (!$cupones || !isset($cupones['data'])) {
                     </li>
 
                     <li class="list-group-item">
-                      <a href="#" class="dropdown-item">
+                      <a href="/unidad4/examen/app/LogoutController.php" class="dropdown-item">
                         <span class="d-flex align-items-center">
                           <i class="ph-duotone ph-power"></i>
                           <span>Logout</span>
@@ -427,24 +432,26 @@ if (!$cupones || !isset($cupones['data'])) {
   <!-- [ Main Content ] start -->
   <div class="pc-container">
 
-  <div class="pc-content">
-    <h1 style="text-align: center;">Consulta de Cupones</h1>
-    <div class="container">
+    <div class="pc-content">
+      <h1 style="text-align: center;">Consulta de Cupones</h1>
+      <div class="container">
         <?php foreach ($cupones['data'] as $cupon): ?>
-            <div class="card shadow-sm p-3 mb-3 bg-white rounded">
-                <h3 class="card-title"><?= htmlspecialchars($cupon['name']) ?></h3>
-                <p><strong>Código:</strong> <?= htmlspecialchars($cupon['code']) ?></p>
-                <p><strong>Descuento:</strong> <?= htmlspecialchars($cupon['percentage_discount']) ?>%</p>
-                <p><strong>Estado:</strong> <?= $cupon['status'] == 1 ? 'Activo' : 'Inactivo' ?></p>
-                <div class="d-flex justify-content-between">
-                    <a href="/unidad4/examen/tpm/application/detalle_cupones.php?action=details&id=<?= $cupon['id'] ?>" class="btn btn-info">Detalles</a>
-                    <a href="modificacion_cupones.php?id=<?= $cupon['id'] ?>" class="btn btn-warning">Editar</a>
-                    <a href="consulta_cupones.php?action=delete&id=<?= $cupon['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cupón?');">Eliminar</a>
-                </div>
+          <div class="card shadow-sm p-3 mb-3 bg-white rounded">
+            <h3 class="card-title"><?= htmlspecialchars($cupon['name']) ?></h3>
+            <p><strong>Código:</strong> <?= htmlspecialchars($cupon['code']) ?></p>
+            <p><strong>Descuento:</strong> <?= htmlspecialchars($cupon['percentage_discount']) ?>%</p>
+            <p><strong>Estado:</strong> <?= $cupon['status'] == 1 ? 'Activo' : 'Inactivo' ?></p>
+            <div class="d-flex justify-content-between">
+              <a href="/unidad4/examen/tpm/application/detalle_cupones.php?action=details&id=<?= $cupon['id'] ?>"
+                class="btn btn-info">Detalles</a>
+              <a href="modificacion_cupones.php?id=<?= $cupon['id'] ?>" class="btn btn-warning">Editar</a>
+              <a href="consulta_cupones.php?action=delete&id=<?= $cupon['id'] ?>" class="btn btn-danger"
+                onclick="return confirm('¿Estás seguro de eliminar este cupón?');">Eliminar</a>
             </div>
+          </div>
         <?php endforeach; ?>
+      </div>
     </div>
-</div>
   </div>
   <!-- [ Main Content ] end -->
 
