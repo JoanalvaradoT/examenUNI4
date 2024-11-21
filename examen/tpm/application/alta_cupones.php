@@ -360,7 +360,7 @@
   <div class="pc-container">
     <div class="pc-content">
       <h1>Crear un Cupón</h1>
-      <form action="../../app/CuponesController.php?action=create" method="POST" enctype="multipart/form-data">
+      <form action="../../app/CuponesController.php?action=create" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Nombre del Cupón:</label>
           <input type="text" class="form-control" id="name" name="name" required>
@@ -379,6 +379,11 @@
           <input type="number" class="form-control" id="min_amount_required" name="min_amount_required" required>
         </div>
         <div class="mb-3">
+          <label for="min_product_required" class="form-label">Productos Mínimos Requeridos:</label>
+          <input type="number" class="form-control" id="min_product_required" name="min_product_required" value="1"
+            required>
+        </div>
+        <div class="mb-3">
           <label for="start_date" class="form-label">Fecha de Inicio:</label>
           <input type="date" class="form-control" id="start_date" name="start_date" required>
         </div>
@@ -391,6 +396,17 @@
           <input type="number" class="form-control" id="max_uses" name="max_uses" required>
         </div>
         <div class="mb-3">
+          <label for="count_uses" class="form-label">Usos Actuales:</label>
+          <input type="number" class="form-control" id="count_uses" name="count_uses" value="0" readonly>
+        </div>
+        <div class="mb-3">
+          <label for="valid_only_first_purchase" class="form-label">Válido Solo para Primer Compra:</label>
+          <select id="valid_only_first_purchase" name="valid_only_first_purchase" class="form-select">
+            <option value="1">Sí</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="mb-3">
           <label for="status" class="form-label">Estado:</label>
           <select id="status" name="status" class="form-select">
             <option value="1">Activo</option>
@@ -400,6 +416,7 @@
         <button type="submit" class="btn btn-primary w-100">Crear Cupón</button>
       </form>
     </div>
+
 
   </div>
   <!-- [ Main Content ] end -->

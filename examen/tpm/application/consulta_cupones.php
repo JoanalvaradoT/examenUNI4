@@ -456,9 +456,9 @@ if (!$cupones || !isset($cupones['data'])) {
                 <p><strong>Descuento:</strong> <?= htmlspecialchars($cupon['percentage_discount']) ?>%</p>
                 <p><strong>Estado:</strong> <?= $cupon['status'] == 1 ? 'Activo' : 'Inactivo' ?></p>
                 <div class="d-flex justify-content-between">
-                    <a href="procesarCupon.php?action=details&id=<?= $cupon['id'] ?>" class="btn btn-info">Detalles</a>
-                    <a href="editarCupon.php?id=<?= $cupon['id'] ?>" class="btn btn-warning">Editar</a>
-                    <a href="procesarCupon.php?action=delete&id=<?= $cupon['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cupón?');">Eliminar</a>
+                    <a href="/unidad4/examen/tpm/application/detalle_cupones.php?action=details&id=<?= $cupon['id'] ?>" class="btn btn-info">Detalles</a>
+                    <a href="modificacion_cupones.php?id=<?= $cupon['id'] ?>" class="btn btn-warning">Editar</a>
+                    <a href="consulta_cupones.php?action=delete&id=<?= $cupon['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cupón?');">Eliminar</a>
                 </div>
             </div>
         <?php endforeach; ?>
