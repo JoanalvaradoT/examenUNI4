@@ -1,43 +1,3 @@
-<?php
-require_once '../../app/CategoriaController.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $categoriaController = new CategoriaController();
-
-    // Validar y procesar los datos
-    $data = [
-        'name' => trim($_POST['name']),
-        'description' => trim($_POST['description']),
-        'slug' => isset($_POST['slug']) && !empty($_POST['slug'])
-            ? strtolower(str_replace(' ', '-', trim($_POST['slug'])))
-            : strtolower(str_replace(' ', '-', trim($_POST['name']))) . '-' . time(),
-        'category_id' => isset($_POST['category_id']) && is_numeric($_POST['category_id']) && $_POST['category_id'] > 0 
-            ? $_POST['category_id'] 
-            : null,
-    ];
-
-    // Imprime los datos enviados para depuración
-    echo '<pre>Datos enviados a la API: ';
-    print_r($data);
-    echo '</pre>';
-
-    $result = $categoriaController->crearCategoria($data);
-
-    // Imprime la respuesta de la API para depuración
-    echo '<pre>Respuesta de la API: ';
-    print_r($result);
-    echo '</pre>';
-
-    if (isset($result['message']) && $result['message'] === 'Registro creado correctamente') {
-        header("Location: /unidad4/examen/tpm/application/crud_categorias.php?message=Categoría creada correctamente");
-        exit();
-    } else {
-    }
-}
-?>
-
-
-
 <!doctype html>
 <html lang="en">
 <!-- [Head] start -->
@@ -419,7 +379,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="pc-content">
             <h1>Crear Categoría</h1>
-            <form action="crud_categorias.php?action=create" method="POST">
+            <form action="/unidad4/examen/tpm/application/crud_categorias.php?action=create" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre de la Categoría:</label>
                     <input type="text" class="form-control" id="name" name="name" required>
@@ -439,6 +399,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn btn-primary w-100">Guardar Categoría</button>
             </form>
         </div>
+
 
 
 

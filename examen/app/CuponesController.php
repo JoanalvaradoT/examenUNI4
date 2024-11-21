@@ -8,7 +8,6 @@ class CuponesController
     {
         $curl = curl_init();
 
-        // Incluye los campos adicionales requeridos por la API
         $data = array_merge($data, [
             'min_product_required' => $data['min_product_required'] ?? '1',
             'count_uses' => $data['count_uses'] ?? '0',

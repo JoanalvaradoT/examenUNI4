@@ -1,10 +1,10 @@
 <?php
-class CategoriaController
+class TagController
 {
-    private $apiUrl = "https://crud.jonathansoto.mx/api/categories";
+    private $apiUrl = "https://crud.jonathansoto.mx/api/tags";
     private $token = '2042|03bDLVAG9dBXNArtAsGxfVLS5Fr14bSOVLU0T1hL';
 
-    public function obtenerCategorias()
+    public function obtenerTags()
     {
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -21,7 +21,7 @@ class CategoriaController
         return $response ? json_decode($response, true) : false;
     }
 
-    public function crearCategoria($data)
+    public function crearTag($data)
     {
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -41,7 +41,7 @@ class CategoriaController
         return $response ? json_decode($response, true) : false;
     }
 
-    public function eliminarCategoria($id)
+    public function eliminarTag($id)
     {
         $curl = curl_init();
         curl_setopt_array($curl, [

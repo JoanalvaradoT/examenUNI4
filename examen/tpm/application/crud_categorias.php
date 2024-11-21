@@ -13,32 +13,32 @@ if (isset($_GET['action'])) {
         $data = [
           'name' => $_POST['name'],
           'description' => $_POST['description'],
-          'slug' => $_POST['slug'],
+          'slug' => strtolower(str_replace(' ', '-', $_POST['name'])),
           'category_id' => $_POST['category_id'] ?? null,
         ];
 
         $result = $categoriaController->crearCategoria($data);
 
         if (isset($result['message']) && $result['message'] === 'Registro creado correctamente') {
-          echo "<p>Categoría creada correctamente.</p>";
+          header("Location: /unidad4/examen/tpm/application/crud_categorias.php?message=Categoría creada correctamente");
+          exit();
         } else {
+          echo "<p>Error al crear la categoría: " . print_r($result, true) . "</p>";
         }
       }
       break;
 
-      case 'delete':
-        if (isset($_GET['id'])) {
-            $result = $categoriaController->eliminarCategoria($_GET['id']);
-    
-            if (isset($result['message']) && $result['message'] === 'Registro Eliminado correctamente') {
-                header("Location: /unidad4/examen/tpm/application/crud_categorias.php?message=Categoría eliminada correctamente");
-                exit();
-            } else {
-                echo "<p>Error al eliminar la categoría: " . print_r($result, true) . "</p>";
-            }
+    case 'delete':
+      if (isset($_GET['id'])) {
+        $result = $categoriaController->eliminarCategoria($_GET['id']);
+
+        if (isset($result['message']) && $result['message'] === '') {
+          header("Location: /unidad4/examen/tpm/application/crud_categorias.php?message=Categoría eliminada correctamente");
+          exit();
+        } else {
         }
-        break;
-    
+      }
+      break;
 
     default:
       echo "<p>Acción no válida.</p>";
@@ -408,39 +408,29 @@ if (isset($_GET['action'])) {
 
   <!-- [ Main Content ] start -->
   <div class="pc-container">
-    <div class="pc-content">
-      <h1>CRUD de Categorías</h1>
+  <div class="pc-content">
+    <h1>CRUD de Categorías</h1>
+    <?php if (isset($_GET['message'])): ?>
+        <div class="alert alert-success"><?= htmlspecialchars($_GET['message']) ?></div>
+    <?php endif; ?>
 
-      <div class="mb-3">
-        <a href="crearCategoria.php" class="btn btn-primary">Crear Categoría</a>
-      </div>
-
-      <hr>
-
-      <h2>Lista de Categorías</h2>
-      <?php
-      require_once '../../app/CategoriaController.php';
-      $categoriaController = new CategoriaController();
-      $categorias = $categoriaController->obtenerCategorias();
-
-      if ($categorias && isset($categorias['data'])):
-        foreach ($categorias['data'] as $categoria): ?>
-          <div class="card shadow-sm p-3 mb-3 bg-white rounded">
-            <h3><?= htmlspecialchars($categoria['name']) ?></h3>
-            <p><strong>Descripción:</strong> <?= htmlspecialchars($categoria['description']) ?></p>
-            <p><strong>Slug:</strong> <?= htmlspecialchars($categoria['slug']) ?></p>
-            <p><strong>ID de Categoría Principal:</strong> <?= htmlspecialchars($categoria['category_id']) ?></p>
-            <div>
-              <a href="editarCategoria.php?id=<?= $categoria['id'] ?>" class="btn btn-warning">Editar</a>
-              <a href="?action=delete&id=<?= $categoria['id'] ?>" class="btn btn-danger"
-                onclick="return confirm('¿Estás seguro de eliminar esta categoría?');">Eliminar</a>
-            </div>
-          </div>
-        <?php endforeach;
-      else: ?>
-        <p>No se encontraron categorías.</p>
-      <?php endif; ?>
+    <a href="/unidad4/examen/tpm/application/crear_categoria.php" class="btn btn-primary">Crear Categoría</a>
+    <div class="mt-4">
+        <?php if ($categorias && isset($categorias['data'])): ?>
+            <?php foreach ($categorias['data'] as $categoria): ?>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($categoria['name']) ?></h5>
+                        <p class="card-text"><?= htmlspecialchars($categoria['description']) ?></p>
+                        <a href="?action=delete&id=<?= $categoria['id'] ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta categoría?');">Eliminar</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay categorías disponibles.</p>
+        <?php endif; ?>
     </div>
+</div>
 
 
 

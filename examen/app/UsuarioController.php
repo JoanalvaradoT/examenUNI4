@@ -121,7 +121,6 @@ class UsuarioController
     }
 }
 
-// Manejo de acciones desde este archivo
 if (isset($_GET['action'])) {
     $usuarioController = new UsuarioController();
 
